@@ -1,37 +1,37 @@
 :root {
 	/* color  */
-	--primary-0: #190230;
-	--primary-10: #2b1560;
-	--primary-20: #442288;
-	--primary-30: #5529ae;
-	--primary-40: #6632cf;
-	--primary-50: #7644e3;
-	--primary-60: #8664ee;
-	--primary-70: #a491f4;
-	--primary-80: #c2b9f9;
-	--primary-90: #dcd8fc;
-	--primary-95: #edeafd;
-	--primary-99: #f4f4fe;
-	--primary-100: #ffffff;
-	--secondary-0: #1c050e;
-	--secondary-10: #490e25;
-	--secondary-20: #782344;
-	--secondary-30: #87224a;
-	--secondary-40: #ae285f;
-	--secondary-50: #c93978;
-	--secondary-60: #dc5898;
-	--secondary-70: #e77fb4;
-	--secondary-80: #f1b0d3;
-	--secondary-90: #f7d3e7;
-	--secondary-95: #fae9f3;
-	--secondary-99: #fcf3f8;
-	--secondary-100: #ffffff;
+	--primary-0: #2b0606; /* Rojo muy oscuro */
+	--primary-10: #410909; /* Rojo oscuro */
+	--primary-20: #820d0d; /* Rojo más oscuro */
+	--primary-30: #b10f0f; /* Rojo fuerte */
+	--primary-40: #d60a0a; /* Rojo intenso */
+	--primary-50: #f20c0c; /* Rojo principal */
+	--primary-60: #f53c3c; /* Rojo más claro */
+	--primary-70: #f76b6b; /* Rojo claro */
+	--primary-80: #fa9b9b; /* Rojo muy claro */
+	--primary-90: #fccbcb; /* Rojo pálido */
+	--primary-95: #fddede; /* Rojo suave */
+	--primary-99: #fff2f2; /* Rojo casi blanco */
+	--primary-100: #ffffff; /* Blanco */
+
+	--secondary-0: #2b1204; /* Naranja muy oscuro */
+	--secondary-10: #401804; /* Naranja oscuro */
+	--secondary-20: #802c09; /* Naranja más oscuro */
+	--secondary-30: #bf400e; /* Naranja fuerte */
+	--secondary-40: #e45a13; /* Naranja intenso */
+	--secondary-50: #f27d16; /* Naranja principal */
+	--secondary-60: #f49646; /* Naranja más claro */
+	--secondary-70: #f7af76; /* Naranja claro */
+	--secondary-80: #fac8a1; /* Naranja muy claro */
+	--secondary-90: #fddfcc; /* Naranja pálido */
+	--secondary-95: #feeae2; /* Naranja suave */
+	--secondary-99: #fff7f4; /* Naranja casi blanco */
 
 	/* colores de las propiedades */
-	--surface: #4F4360;
-	--surface-variant: #e0d8e7;
-	--surface-dim: #998da9;
-	--surface-bridge: #d6cdee;
+	--surface: #4f4360; /* Color de superficie oscuro (compatible con los colores primarios/secundarios) */
+	--surface-variant: #e0d8e7; /* Variante de superficie */
+	--surface-dim: #998da9; /* Superficie más tenue */
+	--surface-bridge: #d6cdee; /* Superficie intermedia */
 
 	--primary: var(--primary-60);
 	--on-surface-primary: var(--primary-10);
@@ -63,11 +63,11 @@
 
 	--text-gradient: radial-gradient(
 		circle farthest-corner at center center,
-		#58f9ff 0%,
-		#df44e7 100%
+		#f20c0c 0%,
+		#f27d16 100%
 	);
 }
-*{
+* {
 	box-sizing: border-box;
 }
 html {
@@ -83,7 +83,7 @@ body {
 main {
 	align-self: center;
 }
-p{
+p {
 	color: var(--primary-100);
 	font-size: var(--text-general);
 }
