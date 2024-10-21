@@ -1,0 +1,88 @@
+---
+import { getPackagesBySlug } from '../../actions/getPackagesBySlug';
+import { menuBlog } from '../../components/data/menuData';
+import Header from '../../components/header/Header.astro';
+import ImgSlider from '../../components/ImgSlider.astro';
+import Schedule from '../../components/Schedule.astro';
+import Layout from '../../layouts/Layout.astro';
+import type { Activity, DayItinerary } from '../../utils/interfaces';
+
+export async function getStaticPaths() {
+	return [
+		{ params: { slug: 'paris-y-la-costa-azul' } },
+		{ params: { slug: 'portugal-lisboa-oporto' } },
+		{ params: { slug: 'espana-barcelona-madrid' } },
+		{ params: { slug: 'grecia-atenas-tesalonica' } },
+		{ params: { slug: 'italia-roma-florencia' } },
+	];
+}
+const { slug } = Astro.params;
+
+const paquete = getPackagesBySlug(slug);
+---
+
+{
+	paquete ? (
+		<Layout title="Flaworld | Agencia de viajes">
+			<Header origin={menuBlog} />
+			<div class="mt-44">
+				<div class="h-screen flex justify-center content-center mx-12">
+					<div class="card__portfolio">
+						<div class="flex gap-4">
+							<div class="w-full flex justify-between">
+								<ImgSlider images={paquete.images} />
+								{/* price */}
+								<div class="text-white text-4xl">
+									{/* badge with price */}
+									<div class="flex flex-col gap-4">
+										<div class="bg-black bg-opacity-50 p-4 rounded-2xl">
+											<span>USD ${paquete.price}</span>
+										</div>
+										<span class="text-4xl cursor-pointer bg-red-100 text-red-800 font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">
+											Contáctanos
+										</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="descripcion__container">
+							<h2 class="card__title">{paquete.name}</h2>
+							<div class="descripcion">
+								<div class="mb-10">
+									{paquete.destinations.map(
+										(skill: string) => (
+											<span class="text-4xl bg-blue-100 text-blue-800 font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+												{skill}
+											</span>
+										)
+									)}
+								</div>
+								<p class="text-4xl text-justify mb-10 font-semibold">
+									{paquete.description}
+								</p>
+							</div>
+						</div>
+						{/* Itinerary */}
+						{/* with class wrap */}
+						<div class="flex flex-wrap gap-4 justify-around mb-10 items-start">
+							{paquete.itinerary.map(
+								(dayItinerary: DayItinerary) => (
+									<Schedule dayItinerary={dayItinerary} />
+								)
+							)}
+						</div>
+					</div>
+				</div>
+			</div>
+		</Layout>
+	) : (
+		<Layout title="Flaworld | Agencia de viajes">
+			<Header origin={menuBlog} />
+			<div class="mt-44">
+				<div class="h-screen flex justify-center content-center">
+					<h1>Paquete no encontrado</h1>
+				</div>
+			</div>
+		</Layout>
+	)
+}

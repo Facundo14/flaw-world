@@ -1,6 +1,6 @@
 .card__portfolio {
 	width: 332px;
-	height: 246px;
+	height: 346px;
 	overflow: hidden;
 	border-radius: 22px;
 	background: #000;
@@ -79,8 +79,8 @@
 .card__portfolio:hover .descripcion p {
 	overflow: auto;
 	white-space: wrap;
-	height: 90px;
-	max-height: 90px;
+	height: 150px;
+	max-height: 150px;
 }
 
 .card__portfolio .descripcion p::-webkit-scrollbar {
